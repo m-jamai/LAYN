@@ -2,130 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200, initial-scale=1.0">
-    <title>Contact · LAYN</title>
+    <title>Contact — LAYN</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="navbar">
-        <a href="index.html" class="nav-logo">LAYN</a>
-        <nav class="nav-links">
-            <a href="index.html">Home & Identity</a>
-            <a href="work.html">What We Do</a>
-            <a href="contact.html" class="active">Contact</a>
-        </nav>
-    </header>
-
-    <div class="motion-line"></div>
-
-    <main class="content-fade-up">
-        <section class="contact-layout">
-            <!-- LEFT PANEL: INFORMATION -->
-            <div class="contact-info">
-                <h1 class="display-title" style="margin-bottom: 20px;">Connect</h1>
-                <p class="lead-text" style="color: var(--gray);">Initiate a production workflow layout or project evaluation sequence.</p>
-                
-                <div class="info-blocks" style="margin-top: 60px;">
-                    <div class="info-item">
-                        <span class="label-text">General Inquiries</span>
-                        <p class="body-text"><a href="mailto:hello@layn.studio" class="accent-link">hello@layn.studio</a></p>
-                    </div>
-                    <div class="info-item" style="margin-top: 30px;">
-                        <span class="label-text">Geographic Base</span>
-                        <p class="body-text">Casablanca, Morocco</p>
-                    </div>
-                </div>
+    <div class="pc-container">
+        <header>
+            <div class="logo-group">
+                <a href="index.html" class="logo">LAYN</a>
+                <span class="tagline">Audio & Film Production</span>
             </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="work.html">What We Do</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </header>
 
-            <!-- RIGHT PANEL: INTERACTIVE MAIL INTERFACE -->
-            <div class="contact-form-container">
-                <div class="form-header-row">
-                    <span class="form-status-dot"></span>
-                    <span class="label-text" style="letter-spacing: 2px;">SECURE AUDIO/FILM PROJECT INTAKE FORM</span>
-                </div>
-                
-                <form id="interactiveMailForm" onsubmit="handleFormSubmission(event)">
-                    <div class="form-group">
-                        <label class="label-text" for="clientName">Sender Identity</label>
-                        <input type="text" id="clientName" placeholder="Your name or organization" required autocomplete="off">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="label-text" for="clientEmail">Return Vector</label>
-                        <input type="email" id="clientEmail" placeholder="name@domain.com" required autocomplete="off">
-                    </div>
+        <hr class="hairline">
 
+        <main class="contact-section">
+            <h1 class="heading-text">Start a Project</h1>
+            <p class="body-text" style="color: #8A8A8A; margin-bottom: 40px;">Fill out your requirements below to automatically structure an inquiry mail.</p>
+            
+            <form id="contactForm" class="interactive-form">
+                <div class="form-row">
                     <div class="form-group">
-                        <label class="label-text" for="projectPillar">Primary Pillar</label>
-                        <select id="projectPillar" required>
-                            <option value="" disabled selected>Select production track...</option>
-                            <option value="Audio Synthesis">Audio (Music, Design, Mixing)</option>
-                            <option value="Film Production">Film (Videos, Documentary, Post)</option>
-                            <option value="Production Logistics">Production Management / Direction Team</option>
-                            <option value="Podcast Engineering">Podcast Capture & Mastering</option>
+                        <label class="label-text">Name</label>
+                        <input type="text" id="name" required placeholder="Your name or agency">
+                    </div>
+                    <div class="form-group">
+                        <label class="label-text">Core Needed Pillar</label>
+                        <select id="service_type">
+                            <option value="Audio Production">Audio Production</option>
+                            <option value="Film Production">Film Production</option>
+                            <option value="Direction Team / Production Logistics">Production Logistics & Direction Team</option>
+                            <option value="Podcast Architecture">Podcast Production</option>
                         </select>
                     </div>
-
-                    <div class="form-group">
-                        <label class="label-text" for="projectBrief">Project Brief & Requirements</label>
-                        <textarea id="projectBrief" rows="6" placeholder="Describe the scope, timeline, and location details..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn" id="submitBtn">
-                        <span id="btnText">DISPATCH INTAKE DATA</span>
-                    </button>
-                </form>
-
-                <div id="formFeedback" class="feedback-panel">
-                    <p class="body-text" id="feedbackMessage"></p>
                 </div>
-            </div>
-        </section>
-    </main>
 
-    <footer class="footer">
-        <p class="label-text">LAYN Studio © 2026 · Morocco / Africa</p>
-    </footer>
+                <div class="form-group">
+                    <label class="label-text">Project Scope & Details</label>
+                    <textarea id="message" rows="6" required placeholder="Outline timelines, local material availability criteria, or sound requirements..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Generate Inquiry Mail</button>
+            </form>
+        </main>
+
+        <footer>
+            <span class="label-text">© 2026 LAYN. hello@layn.studio</span>
+        </footer>
+    </div>
 
     <script>
-        function handleFormSubmission(event) {
-            event.preventDefault();
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service_type').value;
+            const msg = document.getElementById('message').value;
             
-            const btn = document.getElementById('submitBtn');
-            const btnText = document.getElementById('btnText');
-            const feedback = document.getElementById('formFeedback');
-            const feedbackMsg = document.getElementById('feedbackMessage');
+            const emailSubject = encodeURIComponent(`Project Inquiry - ${service}`);
+            const emailBody = encodeURIComponent(`Hi LAYN,\n\nName/Agency: ${name}\nService Required: ${service}\n\nProject Details:\n${msg}`);
             
-            // Collect Form Values for Mail Client Hand-off
-            const name = document.getElementById('clientName').value;
-            const email = document.getElementById('clientEmail').value;
-            const pillar = document.getElementById('projectPillar').value;
-            const brief = document.getElementById('projectBrief').value;
-
-            // Trigger UI Visual State Changes
-            btn.disabled = true;
-            btnText.innerText = "TRANSMITTING DATA...";
-            btn.style.borderColor = "var(--gray)";
-            
-            setTimeout(() => {
-                // Construct mailto syntax with collected data elements
-                const emailSubject = encodeURIComponent(`[LAYN Project Intake] - ${pillar}`);
-                const emailBody = encodeURIComponent(`Sender Identity: ${name}\nReturn Vector: ${email}\nPrimary Pillar: ${pillar}\n\nProject Brief:\n${brief}`);
-                
-                // Exposing client to native system fallback mail routers
-                window.location.href = `mailto:hello@layn.studio?subject=${emailSubject}&body=${emailBody}`;
-                
-                // Show Interactive Confirmation Interface Panel
-                feedback.style.display = "block";
-                feedbackMsg.innerHTML = "Intake framework processed successfully. Your native system electronic mail client has been summoned to forward this transmission payload to <span style='color:var(--accent);'>hello@layn.studio</span>.";
-                
-                // Restore form control parameters
-                btn.disabled = false;
-                btnText.innerText = "DISPATCH INTAKE DATA";
-                btn.style.borderColor = "var(--accent)";
-                document.getElementById('interactiveMailForm').reset();
-            }, 800);
-        }
+            window.location.href = `mailto:hello@layn.studio?subject=${emailSubject}&body=${emailBody}`;
+        });
     </script>
 </body>
 </html>

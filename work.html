@@ -2,72 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200, initial-scale=1.0">
-    <title>What We Do · LAYN</title>
+    <title>What We Do — LAYN</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="navbar">
-        <a href="index.html" class="nav-logo">LAYN</a>
-        <nav class="nav-links">
-            <a href="index.html">Home & Identity</a>
-            <a href="work.html" class="active">What We Do</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+    <div class="pc-container">
+        <header>
+            <div class="logo-group">
+                <a href="index.html" class="logo">LAYN</a>
+                <span class="tagline">Audio & Film Production</span>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="work.html" class="active">What We Do</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
 
-    <div class="motion-line"></div>
+        <hr class="hairline">
 
-    <main class="content-fade-up">
-        <section class="hero-section">
-            <h1 class="display-title">Our Practice</h1>
-            <p class="lead-text">Delivering premium creative execution across four operational pillars, maintained under a singular cohesive framework.</p>
-        </section>
-
-        <!-- PILLARS MATRIX -->
-        <section class="pillars-grid">
-            <div class="pillar-card">
-                <div class="pillar-header">
-                    <span class="label-text">01 //</span>
-                    <h3 class="heading-text">Audio</h3>
+        <main class="work-section">
+            <h1 class="heading-text">Core Services</h1>
+            
+            <div class="services-grid">
+                <div class="service-column">
+                    <h2 class="service-title">Audio</h2>
+                    <ul class="service-list">
+                        <li>Music production</li>
+                        <li>Recording studio sessions</li>
+                        <li>Sound design & foley</li>
+                        <li>Audio mixing & mastering</li>
+                        <li>Audio post-production</li>
+                    </ul>
                 </div>
-                <p class="body-text">Music production, professional recording environments, sound design structures, multi-track mixing, precision mastering, and final format audio post-production.</p>
+
+                <div class="service-column">
+                    <h2 class="service-title">Film</h2>
+                    <ul class="service-list">
+                        <li>Original film production</li>
+                        <li>Music video direction</li>
+                        <li>Documentary production</li>
+                        <li>Post-production editing</li>
+                        <li>Color grading</li>
+                    </ul>
+                </div>
+
+                <div class="service-column">
+                    <h2 class="service-title">Production</h2>
+                    <ul class="service-list">
+                        <li>Creative direction & treatment</li>
+                        <li>Pre-production planning</li>
+                        <li>Simple tasks in direction team</li>
+                        <li>Material & equipment availability tracking</li>
+                        <li>Production management & logistics</li>
+                    </ul>
+                </div>
+
+                <div class="service-column">
+                    <h2 class="service-title">Podcast</h2>
+                    <ul class="service-list">
+                        <li>Layout architecture & planning</li>
+                        <li>Clean acoustic voice recording</li>
+                        <li>Background noise filtering</li>
+                        <li>Structural audio mastering</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="pillar-card">
-                <div class="pillar-header">
-                    <span class="label-text">02 //</span>
-                    <h3 class="heading-text">Film</h3>
-                </div>
-                <p class="body-text">Original cinematic film production layouts, music video treatments, deep-dive independent documentaries, offline/online editing pipelines, and professional color grading suites.</p>
+            <hr class="hairline" style="margin: 60px 0 40px 0;">
+
+            <div class="partner-section">
+                <h2 class="service-title">Morocco Production Partner</h2>
+                <p class="body-text" style="max-width: 800px; margin-bottom: 24px;">For international production projects, LAYN operates as your exclusive single point of contact on the ground.</p>
+                <ul class="service-list grid-partner">
+                    <li>Local crew assembly</li>
+                    <li>Location scouting</li>
+                    <li>Local casting execution</li>
+                    <li>Equipment rental coordination</li>
+                    <li>On-the-ground logistics management</li>
+                </ul>
             </div>
+        </main>
 
-            <div class="pillar-card">
-                <div class="pillar-header">
-                    <span class="label-text">03 //</span>
-                    <h3 class="heading-text">Production</h3>
-                </div>
-                <p class="body-text">Creative concept development, conceptual direction treatments, rigorous pre-production planning, simple targeted tasks in direction team coordination, and constant tracking of material and equipment availability.</p>
-            </div>
-
-            <div class="pillar-card">
-                <div class="pillar-header">
-                    <span class="label-text">04 //</span>
-                    <h3 class="heading-text">Podcast</h3>
-                </div>
-                <p class="body-text">Comprehensive acoustic capture for talk format layouts, localized speech recording engineering, ambient room cancellation, dynamic speech level compression, and specialized vocal sweetening master pipelines.</p>
-            </div>
-        </section>
-
-        <!-- PARTNER OFFER SECTION -->
-        <section class="partner-section">
-            <h2 class="section-title">Production Partner in Morocco</h2>
-            <p class="body-text">For international incoming configurations, LAYN functions as the unified local interface on the ground. We manage local crew setups, location scouting processes, local casting sessions, technical equipment access nodes, on-set logistics management, and centralized post-production hosting profiles.</p>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p class="label-text">LAYN Studio © 2026 · Morocco / Africa</p>
-    </footer>
+        <footer>
+            <span class="label-text">© 2026 LAYN. Based in Morocco.</span>
+        </footer>
+    </div>
 </body>
 </html>
