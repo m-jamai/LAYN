@@ -1,283 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAYN — Audio & Film Production</title>
-    <style>
-        :root {
-            --black: #0A0A0A;
-            --off-white: #F5F3EF;
-            --gray: #8A8A8A;
-            --hairline: #2A2A28;
-            --accent: #D4472B;
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            background-color: var(--black);
-            color: var(--off-white);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-size: 17px;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            padding: 0 40px;
-        }
-        header {
-            padding: 60px 0 40px 0;
-        }
-        .brand-container {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .wordmark {
-            font-size: 44px;
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            text-transform: uppercase;
-            line-height: 1;
-        }
-        .tagline {
-            font-size: 13px;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .hairline-sep {
-            height: 1px;
-            background-color: var(--hairline);
-            margin: 24px 0;
-            width: 100%;
-        }
-        nav {
-            display: flex;
-            gap: 32px;
-            margin-bottom: 60px;
-        }
-        nav a {
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: color 0.2s ease;
-        }
-        nav a:hover, nav a.active {
-            color: var(--accent);
-        }
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: calc(100vh - 350px);
-        }
-        footer {
-            padding: 80px 0 40px 0;
-            font-size: 13px;
-            color: var(--gray);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .footer-line {
-            height: 1px;
-            background-color: var(--hairline);
-            margin-bottom: 24px;
-        }
-        h1, h2, h3, h4 {
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-        .display-text {
-            font-size: 96px;
-            line-height: 1.05;
-            font-weight: 700;
-            letter-spacing: -0.05em;
-            margin-bottom: 48px;
-        }
-        .lead-text {
-            font-size: 24px;
-            line-height: 1.5;
-            color: var(--off-white);
-            max-width: 800px;
-            margin-bottom: 48px;
-        }
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 60px;
-        }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        .section-label {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent);
-            margin-bottom: 16px;
-        }
-        .pillar-card {
-            border: 1px solid var(--hairline);
-            padding: 32px;
-            background-color: rgba(255,255,255,0.01);
-        }
-        .pillar-title {
-            font-size: 24px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-        .pillar-services {
-            font-size: 15px;
-            color: var(--gray);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 32px 0;
-        }
-        th, td {
-            text-align: left;
-            padding: 16px;
-            border-bottom: 1px solid var(--hairline);
-        }
-        th {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--gray);
-        }
-        td:first-child, th:first-child {
-            font-weight: 600;
-            width: 25%;
-        }
-        .avoid-box {
-            border-left: 2px solid var(--accent);
-            padding-left: 24px;
-            margin: 24px 0;
-        }
-        .avoid-item {
-            color: var(--gray);
-            margin-bottom: 8px;
-        }
-        a.accent-link {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border 0.2s ease;
-        }
-        a.accent-link:hover {
-            border-bottom: 1px solid var(--accent);
-        }
-        
-        /* Motion Signature Line Animation */
-        .motion-line-container {
-            width: 100%;
-            height: 1px;
-            background-color: transparent;
-            overflow: hidden;
-            margin: 40px 0;
-        }
-        .motion-line {
-            width: 100%;
-            height: 1px;
-            background-color: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: drawLine 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-        .fade-in-content {
-            opacity: 0;
-            animation: fadeIn 1s ease-out 0.8s forwards;
-        }
-        @keyframes drawLine {
-            to { transform: scaleX(1); }
-        }
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 0 20px; }
-            .display-text { font-size: 48px; }
-            .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 40px; }
-            nav { gap: 16px; }
-        }
-    </style>
+    <meta name="viewport" content="width=1200, initial-scale=1.0">
+    <title>What We Do · LAYN</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="brand-container">
-            <div class="wordmark">LAYN</div>
-            <div class="tagline">Audio & Film Production</div>
-        </div>
-        <div class="hairline-sep"></div>
-        <nav>
-            <a href="index.html" id="nav-home">Home</a>
-            <a href="work.html" id="nav-work">What We Do</a>
-            <a href="identity.html" id="nav-identity">Identity</a>
-            <a href="contact.html" id="nav-contact">Contact</a>
+    <header class="navbar">
+        <a href="index.html" class="nav-logo">LAYN</a>
+        <nav class="nav-links">
+            <a href="index.html">Home & Identity</a>
+            <a href="work.html" class="active">What We Do</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
-    <main>
-        <div class="motion-line-container">
-            <div class="motion-line"></div>
-        </div>
-        
-        <div class="fade-in-content">
-            <h1 class="display-text">What We Do</h1>
-            <p class="lead-text">Three core pillars, seamlessly executed under a single master practice.</p>
-            
-            <div class="grid-3">
-                <div class="pillar-card">
-                    <div class="section-label">Pillar 01</div>
-                    <div class="pillar-title">Audio</div>
-                    <div class="pillar-services">
-                        Music production<br>Recording<br>Sound design<br>Mixing<br>Mastering<br>Audio post-production
-                    </div>
+    <div class="motion-line"></div>
+
+    <main class="content-fade-up">
+        <section class="hero-section">
+            <h1 class="display-title">Our Practice</h1>
+            <p class="lead-text">Delivering premium creative execution across four operational pillars, maintained under a singular cohesive framework.</p>
+        </section>
+
+        <!-- PILLARS MATRIX -->
+        <section class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <span class="label-text">01 //</span>
+                    <h3 class="heading-text">Audio</h3>
                 </div>
-                <div class="pillar-card">
-                    <div class="section-label">Pillar 02</div>
-                    <div class="pillar-title">Film</div>
-                    <div class="pillar-services">
-                        Film production<br>Music videos<br>Documentary<br>Commercial films<br>Branded films<br>Cinematography<br>Editing<br>Color grading
-                    </div>
-                </div>
-                <div class="pillar-card">
-                    <div class="section-label">Pillar 03</div>
-                    <div class="pillar-title">Production</div>
-                    <div class="pillar-services">
-                        Creative development<br>Direction<br>Concept & treatment<br>Pre-production<br>Production management<br>Post-production
-                    </div>
-                </div>
+                <p class="body-text">Music production, professional recording environments, sound design structures, multi-track mixing, precision mastering, and final format audio post-production.</p>
             </div>
-            
-            <div class="hairline-sep"></div>
-            
-            <div class="grid-2">
-                <div>
-                    <div class="section-label">On The Ground</div>
-                    <h2 style="font-size: 24px; margin-bottom: 16px;">Production Partner in Morocco</h2>
-                    <p style="color: var(--gray);">
-                        For international productions, LAYN acts as a single, dependable point of contact on the ground. We manage local crews, locations, casting, equipment, logistics, production management, and cross-border post-production workflows.
-                    </p>
+
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <span class="label-text">02 //</span>
+                    <h3 class="heading-text">Film</h3>
                 </div>
+                <p class="body-text">Original cinematic film production layouts, music video treatments, deep-dive independent documentaries, offline/online editing pipelines, and professional color grading suites.</p>
             </div>
-        </div>
+
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <span class="label-text">03 //</span>
+                    <h3 class="heading-text">Production</h3>
+                </div>
+                <p class="body-text">Creative concept development, conceptual direction treatments, rigorous pre-production planning, simple targeted tasks in direction team coordination, and constant tracking of material and equipment availability.</p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <span class="label-text">04 //</span>
+                    <h3 class="heading-text">Podcast</h3>
+                </div>
+                <p class="body-text">Comprehensive acoustic capture for talk format layouts, localized speech recording engineering, ambient room cancellation, dynamic speech level compression, and specialized vocal sweetening master pipelines.</p>
+            </div>
+        </section>
+
+        <!-- PARTNER OFFER SECTION -->
+        <section class="partner-section">
+            <h2 class="section-title">Production Partner in Morocco</h2>
+            <p class="body-text">For international incoming configurations, LAYN functions as the unified local interface on the ground. We manage local crew setups, location scouting processes, local casting sessions, technical equipment access nodes, on-set logistics management, and centralized post-production hosting profiles.</p>
+        </section>
     </main>
-    <script>document.getElementById('nav-work').classList.add('active');</script>
-    <footer>
-        <div class="footer-line"></div>
-        <div>© 2026 LAYN. Based in Morocco. Working across Africa and beyond.</div>
-        <div><span style="color: var(--accent);">●</span> RECORDING</div>
+
+    <footer class="footer">
+        <p class="label-text">LAYN Studio © 2026 · Morocco / Africa</p>
     </footer>
 </body>
 </html>

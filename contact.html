@@ -1,266 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAYN — Audio & Film Production</title>
-    <style>
-        :root {
-            --black: #0A0A0A;
-            --off-white: #F5F3EF;
-            --gray: #8A8A8A;
-            --hairline: #2A2A28;
-            --accent: #D4472B;
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            background-color: var(--black);
-            color: var(--off-white);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-size: 17px;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            padding: 0 40px;
-        }
-        header {
-            padding: 60px 0 40px 0;
-        }
-        .brand-container {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .wordmark {
-            font-size: 44px;
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            text-transform: uppercase;
-            line-height: 1;
-        }
-        .tagline {
-            font-size: 13px;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .hairline-sep {
-            height: 1px;
-            background-color: var(--hairline);
-            margin: 24px 0;
-            width: 100%;
-        }
-        nav {
-            display: flex;
-            gap: 32px;
-            margin-bottom: 60px;
-        }
-        nav a {
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: color 0.2s ease;
-        }
-        nav a:hover, nav a.active {
-            color: var(--accent);
-        }
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: calc(100vh - 350px);
-        }
-        footer {
-            padding: 80px 0 40px 0;
-            font-size: 13px;
-            color: var(--gray);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .footer-line {
-            height: 1px;
-            background-color: var(--hairline);
-            margin-bottom: 24px;
-        }
-        h1, h2, h3, h4 {
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-        .display-text {
-            font-size: 96px;
-            line-height: 1.05;
-            font-weight: 700;
-            letter-spacing: -0.05em;
-            margin-bottom: 48px;
-        }
-        .lead-text {
-            font-size: 24px;
-            line-height: 1.5;
-            color: var(--off-white);
-            max-width: 800px;
-            margin-bottom: 48px;
-        }
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 60px;
-        }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        .section-label {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent);
-            margin-bottom: 16px;
-        }
-        .pillar-card {
-            border: 1px solid var(--hairline);
-            padding: 32px;
-            background-color: rgba(255,255,255,0.01);
-        }
-        .pillar-title {
-            font-size: 24px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-        .pillar-services {
-            font-size: 15px;
-            color: var(--gray);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 32px 0;
-        }
-        th, td {
-            text-align: left;
-            padding: 16px;
-            border-bottom: 1px solid var(--hairline);
-        }
-        th {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--gray);
-        }
-        td:first-child, th:first-child {
-            font-weight: 600;
-            width: 25%;
-        }
-        .avoid-box {
-            border-left: 2px solid var(--accent);
-            padding-left: 24px;
-            margin: 24px 0;
-        }
-        .avoid-item {
-            color: var(--gray);
-            margin-bottom: 8px;
-        }
-        a.accent-link {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border 0.2s ease;
-        }
-        a.accent-link:hover {
-            border-bottom: 1px solid var(--accent);
-        }
-        
-        /* Motion Signature Line Animation */
-        .motion-line-container {
-            width: 100%;
-            height: 1px;
-            background-color: transparent;
-            overflow: hidden;
-            margin: 40px 0;
-        }
-        .motion-line {
-            width: 100%;
-            height: 1px;
-            background-color: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: drawLine 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-        .fade-in-content {
-            opacity: 0;
-            animation: fadeIn 1s ease-out 0.8s forwards;
-        }
-        @keyframes drawLine {
-            to { transform: scaleX(1); }
-        }
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 0 20px; }
-            .display-text { font-size: 48px; }
-            .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 40px; }
-            nav { gap: 16px; }
-        }
-    </style>
+    <meta name="viewport" content="width=1200, initial-scale=1.0">
+    <title>Contact · LAYN</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="brand-container">
-            <div class="wordmark">LAYN</div>
-            <div class="tagline">Audio & Film Production</div>
-        </div>
-        <div class="hairline-sep"></div>
-        <nav>
-            <a href="index.html" id="nav-home">Home</a>
-            <a href="work.html" id="nav-work">What We Do</a>
-            <a href="identity.html" id="nav-identity">Identity</a>
-            <a href="contact.html" id="nav-contact">Contact</a>
+    <header class="navbar">
+        <a href="index.html" class="nav-logo">LAYN</a>
+        <nav class="nav-links">
+            <a href="index.html">Home & Identity</a>
+            <a href="work.html">What We Do</a>
+            <a href="contact.html" class="active">Contact</a>
         </nav>
     </header>
 
-    <main>
-        <div class="motion-line-container">
-            <div class="motion-line"></div>
-        </div>
-        
-        <div class="fade-in-content">
-            <h1 class="display-text">Connect</h1>
-            <p class="lead-text">Based in Morocco. Operating across the African continent and globally.</p>
-            
-            <div class="grid-2" style="margin-top: 48px;">
-                <div>
-                    <div class="section-label">Inquiries</div>
-                    <h2 style="font-size: 44px; margin-bottom: 16px; font-weight: 500;">
-                        <a href="mailto:hello@layn.studio" class="accent-link">hello@layn.studio</a>
-                    </h2>
-                    <p style="color: var(--gray);">
-                        Reach out to discuss music production, cinematic collaborations, or local production facilitation services in Morocco.
-                    </p>
-                </div>
-                <div>
-                    <div class="section-label">Base</div>
-                    <p style="color: var(--off-white); font-size: 24px; margin-bottom: 8px;">Morocco</p>
-                    <p style="color: var(--gray);">
-                        A central junction connecting global production standards with diverse, contemporary African narratives.
-                    </p>
+    <div class="motion-line"></div>
+
+    <main class="content-fade-up">
+        <section class="contact-layout">
+            <!-- LEFT PANEL: INFORMATION -->
+            <div class="contact-info">
+                <h1 class="display-title" style="margin-bottom: 20px;">Connect</h1>
+                <p class="lead-text" style="color: var(--gray);">Initiate a production workflow layout or project evaluation sequence.</p>
+                
+                <div class="info-blocks" style="margin-top: 60px;">
+                    <div class="info-item">
+                        <span class="label-text">General Inquiries</span>
+                        <p class="body-text"><a href="mailto:hello@layn.studio" class="accent-link">hello@layn.studio</a></p>
+                    </div>
+                    <div class="info-item" style="margin-top: 30px;">
+                        <span class="label-text">Geographic Base</span>
+                        <p class="body-text">Casablanca, Morocco</p>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <!-- RIGHT PANEL: INTERACTIVE MAIL INTERFACE -->
+            <div class="contact-form-container">
+                <div class="form-header-row">
+                    <span class="form-status-dot"></span>
+                    <span class="label-text" style="letter-spacing: 2px;">SECURE AUDIO/FILM PROJECT INTAKE FORM</span>
+                </div>
+                
+                <form id="interactiveMailForm" onsubmit="handleFormSubmission(event)">
+                    <div class="form-group">
+                        <label class="label-text" for="clientName">Sender Identity</label>
+                        <input type="text" id="clientName" placeholder="Your name or organization" required autocomplete="off">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="label-text" for="clientEmail">Return Vector</label>
+                        <input type="email" id="clientEmail" placeholder="name@domain.com" required autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label-text" for="projectPillar">Primary Pillar</label>
+                        <select id="projectPillar" required>
+                            <option value="" disabled selected>Select production track...</option>
+                            <option value="Audio Synthesis">Audio (Music, Design, Mixing)</option>
+                            <option value="Film Production">Film (Videos, Documentary, Post)</option>
+                            <option value="Production Logistics">Production Management / Direction Team</option>
+                            <option value="Podcast Engineering">Podcast Capture & Mastering</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label-text" for="projectBrief">Project Brief & Requirements</label>
+                        <textarea id="projectBrief" rows="6" placeholder="Describe the scope, timeline, and location details..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span id="btnText">DISPATCH INTAKE DATA</span>
+                    </button>
+                </form>
+
+                <div id="formFeedback" class="feedback-panel">
+                    <p class="body-text" id="feedbackMessage"></p>
+                </div>
+            </div>
+        </section>
     </main>
-    <script>document.getElementById('nav-contact').classList.add('active');</script>
-    <footer>
-        <div class="footer-line"></div>
-        <div>© 2026 LAYN. Based in Morocco. Working across Africa and beyond.</div>
-        <div><span style="color: var(--accent);">●</span> RECORDING</div>
+
+    <footer class="footer">
+        <p class="label-text">LAYN Studio © 2026 · Morocco / Africa</p>
     </footer>
+
+    <script>
+        function handleFormSubmission(event) {
+            event.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const feedback = document.getElementById('formFeedback');
+            const feedbackMsg = document.getElementById('feedbackMessage');
+            
+            // Collect Form Values for Mail Client Hand-off
+            const name = document.getElementById('clientName').value;
+            const email = document.getElementById('clientEmail').value;
+            const pillar = document.getElementById('projectPillar').value;
+            const brief = document.getElementById('projectBrief').value;
+
+            // Trigger UI Visual State Changes
+            btn.disabled = true;
+            btnText.innerText = "TRANSMITTING DATA...";
+            btn.style.borderColor = "var(--gray)";
+            
+            setTimeout(() => {
+                // Construct mailto syntax with collected data elements
+                const emailSubject = encodeURIComponent(`[LAYN Project Intake] - ${pillar}`);
+                const emailBody = encodeURIComponent(`Sender Identity: ${name}\nReturn Vector: ${email}\nPrimary Pillar: ${pillar}\n\nProject Brief:\n${brief}`);
+                
+                // Exposing client to native system fallback mail routers
+                window.location.href = `mailto:hello@layn.studio?subject=${emailSubject}&body=${emailBody}`;
+                
+                // Show Interactive Confirmation Interface Panel
+                feedback.style.display = "block";
+                feedbackMsg.innerHTML = "Intake framework processed successfully. Your native system electronic mail client has been summoned to forward this transmission payload to <span style='color:var(--accent);'>hello@layn.studio</span>.";
+                
+                // Restore form control parameters
+                btn.disabled = false;
+                btnText.innerText = "DISPATCH INTAKE DATA";
+                btn.style.borderColor = "var(--accent)";
+                document.getElementById('interactiveMailForm').reset();
+            }, 800);
+        }
+    </script>
 </body>
 </html>
