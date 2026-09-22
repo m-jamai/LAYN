@@ -2,72 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact — LAYN</title>
+    <title>CONTACT · LAYN</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="pc-container">
-        <header>
-            <div class="logo-group">
-                <a href="index.html" class="logo">LAYN</a>
-                <span class="tagline">Audio & Film Production</span>
+    <div class="line-signature"></div>
+    <div class="site-wrapper">
+        <header class="nav-container">
+            <div class="brand-lockup">
+                <span class="logo-text">LAYN</span>
+                <span class="logo-sub">AUDIO & FILM PRODUCTION</span>
             </div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="work.html">What We Do</a>
-                <a href="contact.html" class="active">Contact</a>
+            <nav class="nav-links">
+                <a href="index.html">HOME</a>
+                <a href="work.html">WHAT WE DO</a>
+                <a href="contact.html" class="active">CONTACT</a>
             </nav>
         </header>
 
-        <hr class="hairline">
+        <main class="content-fade-up">
+            <section class="contact-section">
+                <div class="tagline">COMMUNICATION RADIAL</div>
+                <h1>PROJECT INTAKE MAPPING</h1>
+                <p class="contact-desc">Select your operational requirements below to format a structured baseline transmission direct to our studio hub.</p>
 
-        <main class="contact-section">
-            <h1 class="heading-text">Start a Project</h1>
-            <p class="body-text" style="color: #8A8A8A; margin-bottom: 40px;">Fill out your requirements below to automatically structure an inquiry mail.</p>
-            
-            <form id="contactForm" class="interactive-form">
-                <div class="form-row">
+                <form id="intake-form" class="inquiry-form" onsubmit="generateMail(event)">
                     <div class="form-group">
-                        <label class="label-text">Name</label>
-                        <input type="text" id="name" required placeholder="Your name or agency">
+                        <label for="client-name">IDENTIFICATION / COMPANY NAME</label>
+                        <input type="text" id="client-name" required placeholder="Enter name or agency entity">
                     </div>
+
                     <div class="form-group">
-                        <label class="label-text">Core Needed Pillar</label>
-                        <select id="service_type">
-                            <option value="Audio Production">Audio Production</option>
-                            <option value="Film Production">Film Production</option>
-                            <option value="Direction Team / Production Logistics">Production Logistics & Direction Team</option>
-                            <option value="Podcast Architecture">Podcast Production</option>
+                        <label for="project-vector">PRIMARY OPERATIONAL VECTOR</label>
+                        <select id="project-vector" required>
+                            <option value="">SELECT VECTOR...</option>
+                            <option value="Audio Production Integration">AUDIO PRODUCTION INTEGRATION</option>
+                            <option value="Film Production Framework">FILM PRODUCTION FRAMEWORK</option>
+                            <option value="Podcast Architecture & Layout">PODCAST ARCHITECTURE &amp; LAYOUT</option>
+                            <option value="Moroccan Local Operations Support">MOROCCAN LOCAL OPERATIONS SUPPORT</option>
                         </select>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="label-text">Project Scope & Details</label>
-                    <textarea id="message" rows="6" required placeholder="Outline timelines, local material availability criteria, or sound requirements..."></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="project-scope">PROJECT OVERVIEW &amp; PARADIGMS</label>
+                        <textarea id="project-scope" rows="5" required placeholder="Detail the structural elements, timeline boundaries, and operational constraints..."></textarea>
+                    </div>
 
-                <button type="submit" class="submit-btn">Generate Inquiry Mail</button>
-            </form>
+                    <button type="submit" class="submit-btn">GENERATE INQUIRY MAIL</button>
+                </form>
+            </section>
         </main>
-
-        <footer>
-            <span class="label-text">© 2026 LAYN. hello@layn.studio</span>
-        </footer>
     </div>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        function generateMail(e) {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const service = document.getElementById('service_type').value;
-            const msg = document.getElementById('message').value;
-            
-            const emailSubject = encodeURIComponent(`Project Inquiry - ${service}`);
-            const emailBody = encodeURIComponent(`Hi LAYN,\n\nName/Agency: ${name}\nService Required: ${service}\n\nProject Details:\n${msg}`);
-            
-            window.location.href = `mailto:hello@layn.studio?subject=${emailSubject}&body=${emailBody}`;
-        });
+            const name = document.getElementById('client-name').value;
+            const vector = document.getElementById('project-vector').value;
+            const scope = document.getElementById('project-scope').value;
+
+            const subject = encodeURIComponent(`[LAYN INTAKE] ${name} - ${vector}`);
+            const body = encodeURIComponent(
+                `LAYN INTAKE STRUCTURE\n` +
+                `--------------------------------------\n` +
+                `ENTITY NAME: ${name}\n` +
+                `SELECTED VECTOR: ${vector}\n` +
+                `\n` +
+                `PROJECT PARADIGMS & SCOPE:\n` +
+                `${scope}\n` +
+                `--------------------------------------\n` +
+                `Generated natively via LAYN system tool.`
+            );
+
+            window.location.href = `mailto:hello@layn.studio?subject=${subject}&body=${body}`;
+        }
     </script>
 </body>
 </html>

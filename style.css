@@ -1,300 +1,382 @@
-/* LAYN Design System Tokens */
+/* ==========================================================================
+   LAYN BRAND DESIGN SYSTEM & SYSTEMICS LAYOUT DEFINITION (FORCED PC LOCK)
+   ========================================================================== */
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     background-color: #0A0A0A;
     color: #F5F3EF;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
+    font-size: 17px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Hard Lock for PC Viewing Only (No Mobile Resizing) */
-.pc-container {
-    width: 1200px;
+/* Strict Desktop PC Container Lockout */
+.site-wrapper {
+    min-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 80px;
     position: relative;
 }
 
-/* Global Elements */
-header {
+/* ==========================================================================
+   MOTION SIGNATURE: IDENTITY GENESIS ANIMATION
+   ========================================================================== */
+
+.line-signature {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background-color: #D4472B; /* Functional Active state accent */
+    z-index: 9999;
+    animation: drawLine 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.content-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: contentFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards;
+}
+
+@keyframes drawLine {
+    0% { width: 0%; left: 0; }
+    100% { width: 100%; left: 0; }
+}
+
+@keyframes contentFadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   NAVIGATION SYSTEM ARCHITECTURE
+   ========================================================================== */
+
+.nav-container {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    padding: 60px 0 30px 0;
+    align-items: flex-end;
+    padding: 60px 0 40px 0;
+    border-bottom: 1px solid #2A2A28; /* Hairline token */
 }
 
-.logo-group {
+.brand-lockup {
     display: flex;
-    align-items: baseline;
-    gap: 16px;
+    flex-direction: column;
 }
 
-.logo {
-    font-size: 24px;
+.logo-text {
+    font-size: 44px;
     font-weight: 800;
-    letter-spacing: -0.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #F5F3EF;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
 }
 
-.tagline {
+.logo-sub {
     font-size: 13px;
+    letter-spacing: 0.15em;
+    color: #8A8A8A; /* Gray token */
+    margin-top: 6px;
+}
+
+.nav-links a {
     color: #8A8A8A;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-nav {
-    display: flex;
-    gap: 32px;
-}
-
-nav a {
-    font-size: 17px;
     text-decoration: none;
-    color: #8A8A8A;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin-left: 40px;
     transition: color 0.2s ease;
 }
 
-nav a:hover, nav a.active {
+.nav-links a:hover,
+.nav-links a.active {
     color: #F5F3EF;
 }
 
-.hairline {
-    border: none;
-    height: 1px;
-    background-color: #2A2A28;
-    width: 100%;
-    margin-bottom: 60px;
-    transform-origin: left;
-    animation: drawLine 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+/* ==========================================================================
+   HERO / GENERAL PAGE HEADERS (ORGANIZATIONAL RESEARCH AESTHETIC)
+   ========================================================================== */
+
+.tagline {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: #D4472B; /* Accent token for functional/status indicators */
+    margin-bottom: 24px;
+    font-weight: bold;
 }
 
-/* Animations */
-@keyframes drawLine {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
+.hero-section {
+    padding: 100px 0 80px 0;
+    border-bottom: 1px solid #2A2A28;
 }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Common Page Section Parent */
-main {
-    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
-}
-
-/* Typography Scales */
-.display-text {
-    font-size: 96px;
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -2px;
-    margin-bottom: 40px;
-    max-width: 900px;
-}
-
-.heading-text {
+h1 {
     font-size: 44px;
-    font-weight: 400;
-    letter-spacing: -1px;
-    margin-bottom: 48px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    max-width: 1000px;
+    margin-bottom: 30px;
 }
 
-.lead-text {
+.hero-desc {
     font-size: 24px;
     line-height: 1.4;
     color: #8A8A8A;
-    max-width: 800px;
-    margin-bottom: 80px;
+    max-width: 900px;
+    margin-bottom: 50px;
 }
 
-.body-text {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #F5F3EF;
-}
+/* ==========================================================================
+   INTERACTIVE LANDING PANEL (RESEARCH LAB / NOVA SYSTEM VISUALS)
+   ========================================================================== */
 
-.label-text {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #8A8A8A;
-}
-
-/* L.A.Y.N Identity Breakdown Section */
-.identity-system {
-    margin-top: 100px;
-    padding-top: 60px;
-    border-top: 1px solid #2A2A28;
-    animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.4s both;
-}
-
-.section-title {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #8A8A8A;
-    margin-bottom: 40px;
-}
-
-.layn-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-bottom: 60px;
-}
-
-.layn-card {
-    background: #111111;
+.interactive-panel {
+    background-color: #111111;
     border: 1px solid #2A2A28;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
+    max-width: 800px;
+    margin-top: 40px;
 }
 
-.layn-card .letter {
-    font-size: 44px;
+.panel-header {
+    background-color: #161616;
+    padding: 12px 20px;
+    font-size: 13px;
     font-weight: bold;
-    color: #D4472B; /* Active functional token state */
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #2A2A28;
+    display: flex;
+    align-items: center;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #D4472B;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.panel-body {
+    padding: 24px;
+}
+
+.panel-body p {
+    font-size: 15px;
+    color: #8A8A8A;
     margin-bottom: 16px;
 }
 
-.layn-card .concept {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 12px;
+.interactive-btn-group button {
+    background: transparent;
+    border: 1px solid #2A2A28;
     color: #F5F3EF;
-}
-
-.layn-card .desc {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #8A8A8A;
-}
-
-.color-palette .swatches {
-    display: flex;
-    gap: 16px;
-    margin-top: 16px;
-}
-
-.swatch {
-    flex: 1;
-    height: 80px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 10px 20px;
     font-size: 13px;
-}
-
-.swatch-name {
     font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    margin-right: 12px;
+    transition: all 0.2s ease;
 }
 
-/* Clean Service Items Lists */
-.services-grid {
+.interactive-btn-group button:hover {
+    border-color: #F5F3EF;
+    background-color: #F5F3EF;
+    color: #0A0A0A;
+}
+
+.vector-display-box {
+    margin-top: 20px;
+    background-color: #0A0A0A;
+    border: 1px solid #2A2A28;
+    padding: 20px;
+    font-size: 15px;
+    color: #F5F3EF;
+    min-height: 100px;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   L.A.Y.N IDENTITY MATRIX SECTION
+   ========================================================================== */
+
+.identity-section {
+    padding: 80px 0;
+}
+
+.section-label {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: #8A8A8A;
+    margin-bottom: 40px;
+}
+
+.layn-matrix {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: 30px;
 }
 
-.service-title {
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 24px;
-    color: #F5F3EF;
+.matrix-item {
+    border-top: 1px solid #2A2A28;
+    padding-top: 24px;
 }
 
-.service-list {
-    list-style: none;
+.matrix-letter {
+    font-size: 44px;
+    font-weight: 800;
+    color: #D4472B;
+    line-height: 1;
+    margin-bottom: 12px;
 }
 
-.service-list li {
-    font-size: 17px;
+.matrix-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.matrix-desc {
+    font-size: 15px;
     color: #8A8A8A;
-    margin-bottom: 14px;
-    position: relative;
-    padding-left: 20px;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
-.service-list li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    color: #2A2A28;
+/* ==========================================================================
+   SERVICES GRID SYSTEMS (WHAT WE DO ARRAYS)
+   ========================================================================== */
+
+.services-header {
+    padding: 80px 0 50px 0;
+    border-bottom: 1px solid #2A2A28;
 }
 
-.grid-partner {
+.services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px 40px;
+    gap: 60px 40px;
+    padding: 60px 0 100px 0;
 }
 
-/* Interactive Clean Mail Form */
-.interactive-form {
+.service-pillar {
+    border-left: 1px solid #2A2A28;
+    padding-left: 30px;
+}
+
+.service-pillar h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+}
+
+.item-list {
+    list-style-type: none;
+}
+
+.item-list li {
+    font-size: 17px;
+    color: #8A8A8A;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.item-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: #D4472B;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   INTERACTIVE TRANSMISSION FORM TERMINAL
+   ========================================================================== */
+
+.contact-section {
+    padding: 80px 0 100px 0;
     max-width: 700px;
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+.contact-desc {
+    color: #8A8A8A;
+    margin-bottom: 40px;
+}
+
+.inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .form-group {
-    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.form-group input, .form-group select, .form-group textarea {
+.form-group label {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #F5F3EF;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
     background-color: #111111;
     border: 1px solid #2A2A28;
     color: #F5F3EF;
     padding: 16px;
-    font-size: 17px;
+    font-family: inherit;
+    font-size: 15px;
     border-radius: 0;
     outline: none;
-    width: 100%;
-    font-family: inherit;
+    transition: border-color 0.2s ease;
 }
 
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: #8A8A8A;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #D4472B;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%238A8A8A' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
 }
 
 .submit-btn {
-    background-color: #F5F3EF;
-    color: #0A0A0A;
+    background-color: #D4472B;
+    color: #F5F3EF;
     border: none;
-    padding: 16px 32px;
-    font-size: 17px;
-    font-weight: 600;
+    padding: 18px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    margin-top: 10px;
 }
 
 .submit-btn:hover {
-    background-color: #D4472B;
-    color: #F5F3EF;
-}
-
-/* Footer layout rules */
-footer {
-    margin-top: 100px;
-    padding: 40px 0;
-    border-top: 1px solid #2A2A28;
+    background-color: #b8361b;
 }

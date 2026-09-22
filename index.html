@@ -2,70 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>LAYN — Audio & Film Production</title>
+    <title>LAYN · Studio Synthesis</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="pc-container">
-        <header>
-            <div class="logo-group">
-                <a href="index.html" class="logo">LAYN</a>
-                <span class="tagline">Audio & Film Production</span>
+    <div class="line-signature"></div>
+    <div class="site-wrapper">
+        <header class="nav-container">
+            <div class="brand-lockup">
+                <span class="logo-text">LAYN</span>
+                <span class="logo-sub">AUDIO & FILM PRODUCTION</span>
             </div>
-            <nav>
-                <a href="index.html" class="active">Home</a>
-                <a href="work.html">What We Do</a>
-                <a href="contact.html">Contact</a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">HOME</a>
+                <a href="work.html">WHAT WE DO</a>
+                <a href="contact.html">CONTACT</a>
             </nav>
         </header>
 
-        <hr class="hairline">
+        <main class="content-fade-up">
+            <section class="hero-section">
+                <div class="tagline">STUDIO SYNTHESIS</div>
+                <h1>AN INDEPENDENT AUDIO & FILM PRODUCTION HOUSE BASED IN MOROCCO, OPERATING ACROSS AFRICA AND BEYOND.</h1>
+                <p class="hero-desc">We carry projects from original concept to definitive master delivery: recording, sound design, cinema development, and localized logistics unified under one rigid framework.</p>
+                
+                <div class="interactive-panel">
+                    <div class="panel-header">
+                        <span class="status-dot"></span> SYSTEM OPERATION STATUS: STANDBY
+                    </div>
+                    <div class="panel-body">
+                        <p>Select an operational vector to project core methodology data:</p>
+                        <div class="interactive-btn-group">
+                            <button onclick="switchVector('conceptual')">CONCEPTUAL ROOTS</button>
+                            <button onclick="switchVector('technical')">TECHNICAL INFRASTRUCTURE</button>
+                        </div>
+                        <div id="vector-display" class="vector-display-box">
+                            Click a vector above to analyze LAYN structural coordinates.
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <main class="hero-section">
-            <h1 class="display-text">Connecting sound and image.</h1>
-            <p class="lead-text">Independent audio and film production house based in Morocco, working across Africa and international markets. We carry a project from the first idea to the final delivery under one practice.</p>
+            <section class="identity-section">
+                <div class="section-label">IDENTITY SYSTEM / SYSTEMICS</div>
+                
+                <div class="layn-matrix">
+                    <div class="matrix-item">
+                        <div class="matrix-letter">L</div>
+                        <div class="matrix-title">LINE &amp; CONNECTION</div>
+                        <div class="matrix-desc">The architectural axis running from structural draft to physical execution. Realized via strict hairline parameters across all documentation nodes.</div>
+                    </div>
+                    <div class="matrix-item">
+                        <div class="matrix-letter">A</div>
+                        <div class="matrix-title">ACOUSTIC &amp; DIGITAL</div>
+                        <div class="matrix-desc">The structural audio framework. Balancing organic heritage waveforms of Moroccan classical heritage against high-impact digital sub-bass fields.</div>
+                    </div>
+                    <div class="matrix-item">
+                        <div class="matrix-letter">Y</div>
+                        <div class="matrix-title">YIELDING TO CONTEXT</div>
+                        <div class="matrix-desc">Deliberate spatial desaturation. Interface fields drop away so that the raw, native chromatic energy of client film elements commands emphasis.</div>
+                    </div>
+                    <div class="matrix-item">
+                        <div class="matrix-letter">N</div>
+                        <div class="matrix-title">NEGATIVE SPACE</div>
+                        <div class="matrix-desc">Aggressive layout architecture. Using severe layout margins and wide vacant grids as a functional statement of confidence and system clarity.</div>
+                    </div>
+                </div>
+            </section>
         </main>
-
-        <section class="identity-system">
-            <h2 class="section-title">The L.A.Y.N Identity</h2>
-            <div class="layn-grid">
-                <div class="layn-card">
-                    <span class="letter">L</span>
-                    <span class="concept">Line & Connection</span>
-                    <p class="desc">A horizontal timeline matching our razor-thin hairline rules. Connecting concept to flawless execution.</p>
-                </div>
-                <div class="layn-card">
-                    <span class="letter">A</span>
-                    <span class="concept">Acoustic & Digital</span>
-                    <p class="desc">Bridging traditional Moroccan classical acoustic timber with modern, high-impact digital African urban sub-bass.</p>
-                </div>
-                <div class="layn-card">
-                    <span class="letter">Y</span>
-                    <span class="concept">Yielding to Context</span>
-                    <p class="desc">The absolute removal of decorative noise. Grids step back inside muted tones so client raw footage carries the color.</p>
-                </div>
-                <div class="layn-card">
-                    <span class="letter">N</span>
-                    <span class="concept">Negative Space</span>
-                    <p class="desc">Treating heavy, intentional layout frames and bold empty margins as a striking aesthetic statement.</p>
-                </div>
-            </div>
-
-            <div class="color-palette">
-                <h3 class="label-text">System Palette</h3>
-                <div class="swatches">
-                    <div class="swatch" style="background: #0A0A0A; border: 1px solid #2A2A28;"><span class="hex">#0A0A0A</span><span class="swatch-name">Black</span></div>
-                    <div class="swatch" style="background: #F5F3EF; color: #0A0A0A;"><span class="hex">#F5F3EF</span><span class="swatch-name">Off-white</span></div>
-                    <div class="swatch" style="background: #8A8A8A;"><span class="hex">#8A8A8A</span><span class="swatch-name">Gray</span></div>
-                    <div class="swatch" style="background: #2A2A28;"><span class="hex">#2A2A28</span><span class="swatch-name">Hairline</span></div>
-                    <div class="swatch" style="background: #D4472B;"><span class="hex">#D4472B</span><span class="swatch-name">Accent</span></div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <span class="label-text">© 2026 LAYN. Based in Morocco.</span>
-        </footer>
     </div>
+
+    <script>
+        function switchVector(type) {
+            const display = document.getElementById('vector-display');
+            if (type === 'conceptual') {
+                display.innerHTML = `<strong>VECTOR // CONCEPTUAL:</strong> Two distinct operational realities. Traditional heritage and urban rhythm, acoustic purity and digital processing. LAYN acts as the direct line between these parallel systems, treating film as the organic visual extension of sound structure.`;
+            } else if (type === 'technical') {
+                display.innerHTML = `<strong>VECTOR // TECHNICAL:</strong> Standardized display system using clean, high-contrast typography scaling parameters. Zero external dependencies. Execution methodologies favor absolute minimal weight, maximizing data transfer efficiency across desktop displays.`;
+            }
+        }
+    </script>
 </body>
 </html>
