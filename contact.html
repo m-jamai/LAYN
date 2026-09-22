@@ -6,75 +6,133 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="line-signature"></div>
-    <div class="site-wrapper">
-        <header class="nav-container">
-            <div class="brand-lockup">
-                <span class="logo-text">LAYN</span>
-                <span class="logo-sub">AUDIO & FILM PRODUCTION</span>
+    <div class="pc-wrapper">
+        <!-- Header -->
+        <header>
+            <div class="nav-container">
+                <a href="index.html" class="brand-block">
+                    <h1 class="brand-title">LAYN</h1>
+                    <div class="brand-subtitle">Audio & Film Production</div>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Overview</a></li>
+                        <li><a href="work.html">What We Do</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav class="nav-links">
-                <a href="index.html">HOME</a>
-                <a href="work.html">WHAT WE DO</a>
-                <a href="contact.html" class="active">CONTACT</a>
-            </nav>
+            <div class="line-draw-in"></div>
         </header>
 
+        <!-- Main Contact Workspace -->
         <main class="content-fade-up">
-            <section class="contact-section">
-                <div class="tagline">COMMUNICATION RADIAL</div>
-                <h1>PROJECT INTAKE MAPPING</h1>
-                <p class="contact-desc">Select your operational requirements below to format a structured baseline transmission direct to our studio hub.</p>
-
-                <form id="intake-form" class="inquiry-form" onsubmit="generateMail(event)">
-                    <div class="form-group">
-                        <label for="client-name">IDENTIFICATION / COMPANY NAME</label>
-                        <input type="text" id="client-name" required placeholder="Enter name or agency entity">
+            <div class="contact-grid">
+                <!-- Direct Communication Data -->
+                <div class="contact-meta-pane">
+                    <h2>Initiate Project Pipeline</h2>
+                    <p>Fill out our secure data form mapping your structural requirements. The local client script will automatically package your variables into a targeted layout block ready to populate your native desktop mail application instantly.</p>
+                    <div style="margin-top: 40px;">
+                        <span class="form-label" style="margin-bottom: 12px;">Direct Interface Link</span>
+                        <a href="mailto:hello@layn.studio" class="contact-direct-link">hello@layn.studio</a>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="project-vector">PRIMARY OPERATIONAL VECTOR</label>
-                        <select id="project-vector" required>
-                            <option value="">SELECT VECTOR...</option>
-                            <option value="Audio Production Integration">AUDIO PRODUCTION INTEGRATION</option>
-                            <option value="Film Production Framework">FILM PRODUCTION FRAMEWORK</option>
-                            <option value="Podcast Architecture & Layout">PODCAST ARCHITECTURE &amp; LAYOUT</option>
-                            <option value="Moroccan Local Operations Support">MOROCCAN LOCAL OPERATIONS SUPPORT</option>
-                        </select>
-                    </div>
+                <!-- Interactive Email Generator Form Terminal -->
+                <div>
+                    <form id="inquiryForm" onsubmit="generateInquiryMail(event)">
+                        <div class="form-group">
+                            <label class="form-label" for="clientName">Project Authority / Name</label>
+                            <input class="form-input" type="text" id="clientName" required placeholder="John Doe or Agency Name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="serviceTarget">Target Operational Vector</label>
+                            <select class="form-select" id="serviceTarget" required>
+                                <option value="Audio Production Suite">Core Service: Audio Production Suite</option>
+                                <option value="Film Direction Frame">Core Service: Film Direction Frame</option>
+                                <option value="Podcast Creation Architecture">Core Service: Podcast Architecture</option>
+                                <option value="Morocco On-Demand Partner Matrix">On-Demand: Morocco Production Partner Infrastructure</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="project-scope">PROJECT OVERVIEW &amp; PARADIGMS</label>
-                        <textarea id="project-scope" rows="5" required placeholder="Detail the structural elements, timeline boundaries, and operational constraints..."></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label class="form-label" for="projectScope">Operational Scope Blueprint</label>
+                            <textarea class="form-textarea" id="projectScope" rows="6" required placeholder="Outline layout specifications, structural tracking parameters, timeline objectives, or on-demand logistics requirements..."></textarea>
+                        </div>
 
-                    <button type="submit" class="submit-btn">GENERATE INQUIRY MAIL</button>
-                </form>
-            </section>
+                        <button class="submit-btn" type="submit">Compile Inquiry Mail Package</button>
+                    </form>
+                </div>
+            </div>
         </main>
+
+        <hr class="hairline-divider">
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h4>LAYN</h4>
+                    <p>Independent Audio and Film Production House. Based in Morocco, operating internationally across African markets.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Navigation</h5>
+                    <ul>
+                        <li><a href="index.html">Overview</a></li>
+                        <li><a href="work.html">What We Do</a></li>
+                        <li><a href="contact.html">Contact Hub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Core Pillars</h5>
+                    <ul>
+                        <li><a href="work.html#audio">Audio Production</a></li>
+                        <li><a href="work.html#film">Film Direction</a></li>
+                        <li><a href="work.html#podcast">Podcast Framework</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>On-Demand</h5>
+                    <ul>
+                        <li><a href="work.html#morocco-partner">Morocco Production Partner</a></li>
+                        <li><a href="contact.html">Request Logistics</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="hairline-divider" style="background-color: #1a1a1a;">
+            <div class="footer-bottom">
+                <div>&copy; 2026 LAYN. All structural rights reserved.</div>
+                <div class="footer-utility-links">
+                    <a href="#"><span class="record-dot-indicator"></span>LIVE SYSTEM SERVER</a>
+                    <a href="#">Casablanca / Morocco</a>
+                </div>
+            </div>
+        </footer>
     </div>
 
+    <!-- Client-Side Form Formulation Routine -->
     <script>
-        function generateMail(e) {
-            e.preventDefault();
-            const name = document.getElementById('client-name').value;
-            const vector = document.getElementById('project-vector').value;
-            const scope = document.getElementById('project-scope').value;
-
-            const subject = encodeURIComponent(`[LAYN INTAKE] ${name} - ${vector}`);
-            const body = encodeURIComponent(
-                `LAYN INTAKE STRUCTURE\n` +
-                `--------------------------------------\n` +
-                `ENTITY NAME: ${name}\n` +
-                `SELECTED VECTOR: ${vector}\n` +
-                `\n` +
-                `PROJECT PARADIGMS & SCOPE:\n` +
-                `${scope}\n` +
-                `--------------------------------------\n` +
-                `Generated natively via LAYN system tool.`
-            );
-
-            window.location.href = `mailto:hello@layn.studio?subject=${subject}&body=${body}`;
+        function generateInquiryMail(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('clientName').value;
+            const vector = document.getElementById('serviceTarget').value;
+            const scope = document.getElementById('projectScope').value;
+            
+            const emailDestination = "hello@layn.studio";
+            const emailSubject = `LAYN PIPELINE ENTRY // ${vector.toUpperCase()}`;
+            
+            const emailBody = `LAYN PRODUCTION HOUSE - STRUCTURAL INQUIRY LOG\n` +
+                              `=============================================\n\n` +
+                              `AUTHORITY NODE: ${name}\n` +
+                              `OPERATIONAL VECTOR: ${vector}\n\n` +
+                              `BLUEPRINT SPECIFICATIONS:\n` +
+                              `${scope}\n\n` +
+                              `=============================================\n` +
+                              `[LOG GENERATED VIA CLIENT SYSTEM ENVIRONMENT]`;
+                              
+            window.location.href = `mailto:${emailDestination}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
         }
     </script>
 </body>
